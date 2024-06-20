@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>BrowserBot web components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body class="p-4 bg-neutral-100">
+
+<div class="grid gap-4">
+    <lumine-card title="The buttons" subtitle="Card subtitle">
+        <div class="flex gap-4">
+            <lumine-button>
+                Button
+            </lumine-button>
+            <lumine-button disabled text="Hello world!"></lumine-button>
+        </div>
+    </lumine-card>
+    <lumine-card title="The text inputs" subtitle="Card subtitle">
+        <div class="grid grid-cols-3 gap-4">
+            <lumine-text-input label="Nombre" placeholder="Escribe aquí" name="nombre" id="nombre"></lumine-text-input>
+            <lumine-text-input label="Apellidos" disabled placeholder="Deshabilitado" name="lastName"
+                               id="lastName"></lumine-text-input>
+            <lumine-text-input label="Edad" type="number" placeholder="Escribe aquí" name="age"
+                               id="age"></lumine-text-input>
+        </div>
+    </lumine-card>
+    <lumine-card title="The selects" subtitle="Card subtitle">
+        <div class="grid grid-cols-3 gap-4">
+            <lumine-select label="Seleccione una opción" name="opcion" id="opcion">
+            </lumine-select>
+            <lumine-select label="Card deshabilitado" name="opcion" id="opcion" disabled>
+            </lumine-select>
+            <lumine-select label="Opción por defecto seleccionada" name="opcion" id="opcion" value="2">
+            </lumine-select>
+        </div>
+    </lumine-card>
+</div>
+
+<script type="module" src="src/components/atoms/button/button.ts"></script>
+<script type="module" src="src/components/atoms/text-input/text-input.ts"></script>
+<script type="module" src="src/components/atoms/select/select.ts"></script>
+<script type="module" src="src/components/atoms/card/card.ts"></script>
+</body>
+</html>

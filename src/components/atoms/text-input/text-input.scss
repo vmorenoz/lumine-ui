@@ -1,0 +1,17 @@
+:host {
+  label {
+    @apply block text-sm font-medium text-neutral-500 mb-1 mt-2;
+  }
+
+  input {
+    @apply text-base max-w-sm block w-full px-2 py-1.5 placeholder-neutral-400 border border-neutral-300 rounded shadow shadow-neutral-100 sm:text-sm;
+
+    &:focus-within {
+      @apply outline-none ring-neutral-700 border-neutral-700
+    }
+
+    &:disabled {
+      @apply bg-neutral-50 text-neutral-400 cursor-not-allowed;
+    }
+  }
+}

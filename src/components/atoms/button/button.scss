@@ -1,0 +1,13 @@
+:host {
+  button {
+    @apply bg-neutral-50 px-4 max-h-10 h-10 py-2 rounded shadow shadow-neutral-100 font-normal text-neutral-900 text-base;
+
+    &:hover {
+      @apply bg-neutral-100;
+    }
+
+    &:disabled {
+      @apply text-neutral-400 cursor-not-allowed;
+    }
+  }
+}

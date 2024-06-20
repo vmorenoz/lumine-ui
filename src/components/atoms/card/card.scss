@@ -1,0 +1,17 @@
+:host {
+  .lumine-card {
+    @apply bg-white p-5 rounded shadow text-base;
+
+    .lumine-card-title {
+      @apply text-lg font-bold text-neutral-600;
+    }
+
+    .lumine-card-subtitle {
+      @apply text-neutral-500 text-sm;
+    }
+
+    .lumine-card-content {
+      @apply mt-2;
+    }
+  }
+}

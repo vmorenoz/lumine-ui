@@ -1,0 +1,29 @@
+:host {
+  label {
+    @apply block text-sm font-medium text-neutral-500 mb-1 mt-2;
+  }
+
+  select {
+    @apply text-base font-normal block max-w-sm w-full px-2 py-1.5 placeholder-neutral-400 border border-neutral-300 rounded shadow shadow-neutral-100 sm:text-sm;
+    -moz-appearance: none; /* Firefox */
+    -webkit-appearance: none; /* Safari and Chrome */
+    appearance: none;
+    background: transparent url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>") no-repeat;
+    background-position-x: 99%;
+    background-position-y: 5px;
+
+    &:focus-within {
+      @apply outline-none ring-neutral-700 border-neutral-700
+    }
+
+    &:disabled {
+      @apply bg-neutral-50 text-neutral-400 cursor-not-allowed;
+    }
+
+    option {
+      &:disabled {
+        @apply text-neutral-400;
+      }
+    }
+  }
+}

@@ -58,7 +58,7 @@
 
     &.radio-default {
       &::before {
-        @apply border-gray-300;
+        @apply border-gray-500;
       }
 
       &:checked {
@@ -67,7 +67,7 @@
         }
 
         &::after {
-          @apply bg-gray-300;
+          @apply bg-gray-500;
         }
       }
     }

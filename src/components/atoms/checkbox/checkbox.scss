@@ -53,12 +53,12 @@
 
     &.checkbox-default {
       &::after {
-        @apply border-dark;
+        @apply border-gray-500;
       }
 
       &:checked {
         &::before {
-          @apply bg-dark border-dark;
+          @apply bg-gray-500 border-gray-500;
         }
 
         &::after {

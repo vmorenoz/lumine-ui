@@ -1,12 +1,12 @@
 import {html} from "lit";
 import {customElement, property} from "lit/decorators.js";
 
-import style from "./text-input.scss?inline";
+import style from "./textarea.scss?inline";
 import {TailwindElement} from "../../../shared/tailwind.element";
 import {ColorVariant} from "../../../enums/color-variant.enum";
 
-@customElement("lumine-text-input")
-export class TextInput extends TailwindElement(style) {
+@customElement("lumine-textarea")
+export class Textarea extends TailwindElement(style) {
     @property()
     label!: string;
 
@@ -28,8 +28,11 @@ export class TextInput extends TailwindElement(style) {
     @property({type: Boolean})
     required: boolean = false;
 
+    @property({type: Number})
+    rows: number = 3;
+
     @property({type: String})
-    type = 'text';
+    type: string = "text";
 
     @property()
     color: ColorVariant = ColorVariant.default;
@@ -42,16 +45,18 @@ export class TextInput extends TailwindElement(style) {
     render() {
         return html`
             ${this.renderLabel()}
-            <input type="${this.type}"
-                   value="${this.value}"
-                   class="input-${this.color}"
-                   placeholder="${this.placeholder}"
-                   id="${this.id}"
-                   ?disabled="${this.disabled}"
-                   name="${this.name}"
-                   @input="${this.handleInput}"
-                   @focus="${this.handleFocus}"
-                   @blur="${this.handleBlur}">
+            <textarea
+                    rows="${this.rows}"
+                    type="${this.type}"
+                    class="textarea-${this.color}"
+                    placeholder="${this.placeholder}"
+                    id="${this.id}"
+                    ?disabled="${this.disabled}"
+                    name="${this.name}"
+                    @input="${this.handleInput}"
+                    @focus="${this.handleFocus}"
+                    @blur="${this.handleBlur}"
+            >${this.value?.trim()}</textarea>
         `;
     }
 

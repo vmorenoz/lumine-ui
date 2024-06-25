@@ -1,10 +1,46 @@
 :host {
   label {
-    @apply block text-sm font-medium text-neutral-500 mb-1 mt-2;
+    @apply block text-sm font-medium text-dark mb-1 mt-2;
+
+    &.label-default {
+      @apply text-dark;
+    }
+
+    &.label-primary {
+      @apply text-primary-600
+    }
+
+    &.label-secondary {
+      @apply text-secondary-600;
+    }
+
+    &.label-accent {
+      @apply text-accent-600;
+    }
+
+    &.label-neutral {
+      @apply text-neutral-600;
+    }
+
+    &.label-danger {
+      @apply text-danger-600;
+    }
+
+    &.label-success {
+      @apply text-success-600;
+    }
+
+    &.label-warning {
+      @apply text-warning-600;
+    }
+
+    &.label-info {
+      @apply text-info-600;
+    }
   }
 
   select {
-    @apply text-base font-normal block max-w-sm w-full px-2 py-1.5 placeholder-neutral-400 border border-neutral-300 rounded shadow shadow-neutral-100 sm:text-sm;
+    @apply text-base font-normal block w-full px-2 py-1.5 border rounded shadow-md shadow-gray-50 sm:text-sm;
     -moz-appearance: none; /* Firefox */
     -webkit-appearance: none; /* Safari and Chrome */
     appearance: none;
@@ -12,17 +48,86 @@
     background-position-x: 99%;
     background-position-y: 5px;
 
-    &:focus-within {
-      @apply outline-none ring-neutral-700 border-neutral-700
+
+    &.select-default {
+      @apply bg-white text-dark placeholder-gray-400 border-gray-200;
+
+      &:focus-within {
+        @apply outline-none ring-dark border-dark;
+      }
+    }
+
+    &.select-primary {
+      @apply bg-primary-50 text-primary-800 placeholder-primary-500 border-primary-500;
+
+      &:focus-within {
+        @apply outline-none ring-primary-500 border-primary-700;
+      }
+    }
+
+    &.select-secondary {
+      @apply bg-secondary-50 text-secondary-800 placeholder-secondary-500 border-secondary-500;
+
+      &:focus-within {
+        @apply outline-none ring-secondary-700 border-secondary-700;
+      }
+    }
+
+    &.select-accent {
+      @apply bg-accent-50 text-accent-800 placeholder-accent-500 border-accent-500;
+
+      &:focus-within {
+        @apply outline-none ring-accent-500 border-accent-700;
+      }
+    }
+
+    &.select-neutral {
+      @apply bg-neutral-50 text-neutral-800 placeholder-neutral-500 border-neutral-500;
+
+      &:focus-within {
+        @apply outline-none ring-neutral-500 border-neutral-700;
+      }
+    }
+
+    &.select-danger {
+      @apply bg-danger-50 text-danger-800 placeholder-danger-500 border-danger-500;
+
+      &:focus-within {
+        @apply outline-none ring-danger-500 border-danger-700;
+      }
+    }
+
+    &.select-success {
+      @apply bg-success-50 text-success-800 placeholder-success-500 border-success-500;
+
+      &:focus-within {
+        @apply outline-none ring-success-500 border-success-700;
+      }
+    }
+
+    &.select-warning {
+      @apply bg-warning-50 text-warning-800 placeholder-warning-500 border-warning-500;
+
+      &:focus-within {
+        @apply outline-none ring-warning-500 border-warning-700;
+      }
+    }
+
+    &.select-info {
+      @apply bg-info-50 text-info-800 placeholder-info-500 border-info-500;
+
+      &:focus-within {
+        @apply outline-none ring-info-500 border-info-700;
+      }
     }
 
     &:disabled {
-      @apply bg-neutral-50 text-neutral-400 cursor-not-allowed;
+      @apply bg-gray-50 text-gray-400 cursor-not-allowed;
     }
 
     option {
       &:disabled {
-        @apply text-neutral-400;
+        @apply text-dark;
       }
     }
   }

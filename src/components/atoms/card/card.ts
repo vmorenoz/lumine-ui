@@ -3,6 +3,7 @@ import {customElement, property} from "lit/decorators.js";
 
 import style from "./card.scss?inline";
 import {TailwindElement} from "../../../shared/tailwind.element";
+import {ColorVariant} from "../../../enums/color-variant.enum";
 
 export interface ISelectOption {
     value: string;
@@ -13,11 +14,11 @@ export interface ISelectOption {
 
 @customElement("lumine-card")
 export class Card extends TailwindElement(style) {
-    @property()
-    title!: string;
+    @property({attribute: 'title-text'})
+    titleText!: string;
 
-    @property()
-    subtitle!: string;
+    @property({attribute: 'subtitle-text'})
+    subtitleText!: string;
 
     @property()
     id!: string;
@@ -25,14 +26,29 @@ export class Card extends TailwindElement(style) {
     @property()
     name!: string;
 
+    @property()
+    color: ColorVariant = ColorVariant.default;
+
+    renderTitle() {
+        return this.titleText || html`
+            <slot name="title"></slot>
+        `;
+    }
+
+    renderSubtitle() {
+        return this.subtitleText || html`
+            <slot name="subtitle"></slot>
+        `;
+    }
+
     render() {
         return html`
-            <div class="lumine-card">
+            <div class="lumine-card lumine-card-${this.color}">
                 <div class="lumine-card-title">
-                    ${this.title}
+                    ${this.renderTitle()}
                 </div>
                 <div class="lumine-card-subtitle">
-                    ${this.subtitle}
+                    ${this.renderSubtitle()}
                 </div>
                 <div class="lumine-card-content">
                     <slot></slot>

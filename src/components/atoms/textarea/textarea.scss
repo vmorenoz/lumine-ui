@@ -39,10 +39,10 @@
     }
   }
 
-  input {
+  textarea {
     @apply text-base block w-full px-2 py-1.5 border rounded shadow-md shadow-gray-50 sm:text-sm;
 
-    &.input-default {
+    &.textarea-default {
       @apply bg-white text-dark placeholder-gray-400 border-gray-200;
 
       &:focus-within {
@@ -50,7 +50,7 @@
       }
     }
 
-    &.input-primary {
+    &.textarea-primary {
       @apply bg-primary-50 text-primary-800 placeholder-primary-500 border-primary-500;
 
       &:focus-within {
@@ -58,7 +58,7 @@
       }
     }
 
-    &.input-secondary {
+    &.textarea-secondary {
       @apply bg-secondary-50 text-secondary-800 placeholder-secondary-500 border-secondary-500;
 
       &:focus-within {
@@ -66,7 +66,7 @@
       }
     }
 
-    &.input-accent {
+    &.textarea-accent {
       @apply bg-accent-50 text-accent-800 placeholder-accent-500 border-accent-500;
 
       &:focus-within {
@@ -74,7 +74,7 @@
       }
     }
 
-    &.input-neutral {
+    &.textarea-neutral {
       @apply bg-neutral-50 text-neutral-800 placeholder-neutral-500 border-neutral-500;
 
       &:focus-within {
@@ -82,7 +82,7 @@
       }
     }
 
-    &.input-danger {
+    &.textarea-danger {
       @apply bg-danger-50 text-danger-800 placeholder-danger-500 border-danger-500;
 
       &:focus-within {
@@ -90,7 +90,7 @@
       }
     }
 
-    &.input-success {
+    &.textarea-success {
       @apply bg-success-50 text-success-800 placeholder-success-500 border-success-500;
 
       &:focus-within {
@@ -98,7 +98,7 @@
       }
     }
 
-    &.input-warning {
+    &.textarea-warning {
       @apply bg-warning-50 text-warning-800 placeholder-warning-500 border-warning-500;
 
       &:focus-within {
@@ -106,7 +106,7 @@
       }
     }
 
-    &.input-info {
+    &.textarea-info {
       @apply bg-info-50 text-info-800 placeholder-info-500 border-info-500;
 
       &:focus-within {

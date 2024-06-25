@@ -1,0 +1,225 @@
+:host {
+  label {
+    @apply block text-sm font-medium text-dark;
+
+    &.label-default {
+      @apply text-dark;
+    }
+
+    &.label-primary {
+      @apply text-primary-500;
+    }
+
+    &.label-secondary {
+      @apply text-secondary-500;
+    }
+
+    &.label-accent {
+      @apply text-accent-500;
+    }
+
+    &.label-neutral {
+      @apply text-neutral-500;
+    }
+
+    &.label-danger {
+      @apply text-danger-500;
+    }
+
+    &.label-success {
+      @apply text-success-500;
+    }
+
+    &.label-warning {
+      @apply text-warning-500;
+    }
+
+    &.label-info {
+      @apply text-info-500;
+    }
+
+    &.label-disabled {
+      @apply text-gray-400 cursor-not-allowed;
+    }
+  }
+
+  input[type="radio"] {
+    @apply w-4 h-4 bg-white rounded relative appearance-none;
+
+    &::before {
+      content: '';
+      @apply absolute bg-white border inset-0 w-4 h-4 rounded-full transition-transform;
+    }
+
+    &::after {
+      content: '';
+      @apply absolute inset-0 left-1 top-1 w-2 h-2 bg-white rounded-full transition-transform;
+    }
+
+    &.radio-default {
+      &::before {
+        @apply border-gray-300;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-gray-300;
+        }
+      }
+    }
+
+    &.radio-primary {
+      &::before {
+        @apply border-primary-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-primary-500;
+        }
+      }
+    }
+
+    &.radio-secondary {
+      &::before {
+        @apply border-secondary-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-secondary-500;
+        }
+      }
+    }
+
+    &.radio-secondary {
+      &::before {
+        @apply border-secondary-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-secondary-500;
+        }
+      }
+    }
+
+    &.radio-accent {
+      &::before {
+        @apply border-accent-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-accent-500;
+        }
+      }
+    }
+
+    &.radio-neutral {
+      &::before {
+        @apply border-neutral-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-neutral-500;
+        }
+      }
+    }
+
+    &.radio-danger {
+      &::before {
+        @apply border-danger-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-danger-500;
+        }
+      }
+    }
+
+    &.radio-success {
+      &::before {
+        @apply border-success-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-success-500;
+        }
+      }
+    }
+
+    &.radio-warning {
+      &::before {
+        @apply border-warning-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-warning-500;
+        }
+      }
+    }
+
+    &.radio-info {
+      &::before {
+        @apply border-info-500;
+      }
+
+      &:checked {
+        &::before {
+          @apply border-2;
+        }
+
+        &::after {
+          @apply bg-info-500;
+        }
+      }
+    }
+
+    &:disabled {
+      &::before {
+        @apply border-gray-50 bg-gray-50 cursor-not-allowed;
+      }
+    }
+  }
+}

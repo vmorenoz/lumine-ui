@@ -1,17 +1,149 @@
 :host {
   .lumine-card {
-    @apply bg-white p-5 rounded shadow text-base;
+    @apply bg-white px-5 pb-5 pt-3 w-full rounded shadow shadow-gray-100 text-base;
 
     .lumine-card-title {
-      @apply text-lg font-bold text-neutral-600;
+      @apply text-lg font-bold text-dark mb-0.5;
     }
 
     .lumine-card-subtitle {
-      @apply text-neutral-500 text-sm;
+      @apply text-dark text-sm mb-2;
     }
 
     .lumine-card-content {
-      @apply mt-2;
+      @apply mt-2 text-base;
+    }
+
+    ::slotted(*) {
+      @apply w-full flex-wrap;
+    }
+
+    &.lumine-card-primary {
+      @apply bg-primary-50;
+
+      .lumine-card-title {
+        @apply text-primary-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-primary-500;
+      }
+
+      .lumine-card-content {
+        @apply text-primary-600;
+      }
+    }
+
+    &.lumine-card-secondary {
+      @apply bg-secondary-50;
+
+      .lumine-card-title {
+        @apply text-secondary-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-secondary-500;
+      }
+
+      .lumine-card-content {
+        @apply text-secondary-700;
+      }
+    }
+
+    &.lumine-card-accent {
+      @apply bg-accent-50;
+
+      .lumine-card-title {
+        @apply text-accent-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-accent-500;
+      }
+
+      .lumine-card-content {
+        @apply text-accent-700;
+      }
+    }
+
+    &.lumine-card-neutral {
+      @apply bg-neutral-50;
+
+      .lumine-card-title {
+        @apply text-neutral-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-neutral-500;
+      }
+
+      .lumine-card-content {
+        @apply text-neutral-700;
+      }
+    }
+
+    &.lumine-card-danger {
+      @apply bg-danger-50;
+
+      .lumine-card-title {
+        @apply text-danger-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-danger-500;
+      }
+
+      .lumine-card-content {
+        @apply text-danger-700;
+      }
+    }
+
+    &.lumine-card-success {
+      @apply bg-success-50;
+
+      .lumine-card-title {
+        @apply text-success-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-success-500;
+      }
+
+      .lumine-card-content {
+        @apply text-success-700;
+      }
+    }
+
+    &.lumine-card-warning {
+      @apply bg-warning-50;
+
+      .lumine-card-title {
+        @apply text-warning-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-warning-500;
+      }
+
+      .lumine-card-content {
+        @apply text-warning-700;
+      }
+    }
+
+    &.lumine-card-info {
+      @apply bg-info-50;
+
+      .lumine-card-title {
+        @apply text-info-600;
+      }
+
+      .lumine-card-subtitle {
+        @apply text-info-500;
+      }
+
+      .lumine-card-content {
+        @apply text-info-700;
+      }
     }
   }
 }

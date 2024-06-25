@@ -4,39 +4,287 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BrowserBot web components</title>
+    <title>Lumine UI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<body class="p-4 bg-neutral-100">
+<body class="bg-white">
 
-<div class="grid gap-4">
-    <lumine-card title="The buttons" subtitle="Card subtitle">
-        <div class="flex gap-4">
-            <lumine-button>
-                Button
-            </lumine-button>
-            <lumine-button disabled text="Hello world!"></lumine-button>
-        </div>
-    </lumine-card>
-    <lumine-card title="The text inputs" subtitle="Card subtitle">
-        <div class="grid grid-cols-3 gap-4">
-            <lumine-text-input label="Nombre" placeholder="Escribe aquí" name="nombre" id="nombre"></lumine-text-input>
-            <lumine-text-input label="Apellidos" disabled placeholder="Deshabilitado" name="lastName"
+<div class="grid gap-6 p-6">
+    <div class="grid grid-cols-3 gap-4">
+        <lumine-card title-text="Simple card" subtitle-text="Example of a simple card">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with primary color" subtitle-text="Example of a card with primary color variation"
+                     color="primary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with secondary color"
+                     subtitle-text="Example of a card with secondary color variation" color="secondary">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with accent color" subtitle-text="Example of a card with accent color variation"
+                     color="accent">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with neutral color" subtitle-text="Example of a card with neutral color variation"
+                     color="neutral">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with danger color" subtitle-text="Example of a card with danger color variation"
+                     color="danger">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with success color" subtitle-text="Example of a card with success color variation"
+                     color="success">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with warning color" subtitle-text="Example of a card with warning color variation"
+                     color="warning">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+        <lumine-card title-text="Card with info color" subtitle-text="Example of a card with info color variation"
+                     color="info">
+            lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
+        </lumine-card>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+        <lumine-card title-text="Raised buttons" subtitle-text="Example of raised buttons">
+            <div class="flex gap-3">
+                <lumine-button disabled text="Disabled"></lumine-button>
+                <lumine-button text="Default" color="default"></lumine-button>
+                <lumine-button text="Primary" color="primary"></lumine-button>
+                <lumine-button text="Secondary" color="secondary"></lumine-button>
+                <lumine-button text="Accent" color="accent"></lumine-button>
+                <lumine-button text="Neutral" color="neutral"></lumine-button>
+                <lumine-button text="Danger" color="danger"></lumine-button>
+                <lumine-button text="Success" color="success"></lumine-button>
+                <lumine-button text="Warning" color="warning"></lumine-button>
+                <lumine-button text="Info" color="info"></lumine-button>
+            </div>
+        </lumine-card>
+        <lumine-card title-text="Flat buttons" subtitle-text="Example of flat buttons">
+            <div class="flex gap-3">
+                <lumine-button disabled variant="flat" text="Disabled"></lumine-button>
+                <lumine-button text="Default" variant="flat" color="default"></lumine-button>
+                <lumine-button text="Primary" variant="flat" color="primary"></lumine-button>
+                <lumine-button text="Secondary" variant="flat" color="secondary"></lumine-button>
+                <lumine-button text="Accent" variant="flat" color="accent"></lumine-button>
+                <lumine-button text="Neutral" variant="flat" color="neutral"></lumine-button>
+                <lumine-button text="Danger" variant="flat" color="danger"></lumine-button>
+                <lumine-button text="Success" variant="flat" color="success"></lumine-button>
+                <lumine-button text="Warning" variant="flat" color="warning"></lumine-button>
+                <lumine-button text="Info" variant="flat" color="info"></lumine-button>
+            </div>
+        </lumine-card>
+        <lumine-card title-text="Outline buttons" subtitle-text="Example of outline buttons">
+            <div class="flex gap-3">
+                <lumine-button disabled variant="outline" text="Disabled"></lumine-button>
+                <lumine-button text="Default" variant="outline" color="default"></lumine-button>
+                <lumine-button text="Primary" variant="outline" color="primary"></lumine-button>
+                <lumine-button text="Secondary" variant="outline" color="secondary"></lumine-button>
+                <lumine-button text="Accent" variant="outline" color="accent"></lumine-button>
+                <lumine-button text="Neutral" variant="outline" color="neutral"></lumine-button>
+                <lumine-button text="Danger" variant="outline" color="danger"></lumine-button>
+                <lumine-button text="Success" variant="outline" color="success"></lumine-button>
+                <lumine-button text="Warning" variant="outline" color="warning"></lumine-button>
+                <lumine-button text="Info" variant="outline" color="info"></lumine-button>
+            </div>
+        </lumine-card>
+        <lumine-card title-text="Clear buttons" subtitle-text="Example of clear buttons">
+            <div class="flex gap-3">
+                <lumine-button disabled variant="clear" text="Disabled"></lumine-button>
+                <lumine-button text="Default" variant="clear" color="default"></lumine-button>
+                <lumine-button text="Primary" variant="clear" color="primary"></lumine-button>
+                <lumine-button text="Secondary" variant="clear" color="secondary"></lumine-button>
+                <lumine-button text="Accent" variant="clear" color="accent"></lumine-button>
+                <lumine-button text="Neutral" variant="clear" color="neutral"></lumine-button>
+                <lumine-button text="Danger" variant="clear" color="danger"></lumine-button>
+                <lumine-button text="Success" variant="clear" color="success"></lumine-button>
+                <lumine-button text="Warning" variant="clear" color="warning"></lumine-button>
+                <lumine-button text="Info" variant="clear" color="info"></lumine-button>
+            </div>
+        </lumine-card>
+    </div>
+</div>
+<div class="grid gap-6 p-6 bg-gray-50">
+    <lumine-card title-text="Input forms" subtitle-text="Text inputs">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-text-input label="Input" placeholder="Write here" name="input" id="input"></lumine-text-input>
+            <lumine-text-input label="Disabled input" disabled placeholder="Disabled" name="lastName"
                                id="lastName"></lumine-text-input>
-            <lumine-text-input label="Edad" type="number" placeholder="Escribe aquí" name="age"
+            <lumine-text-input label="With default value"
+                               type="number"
+                               value="25"
+                               placeholder="Write here" name="age"
+                               id="age"></lumine-text-input>
+            <lumine-text-input label="Required input"
+                               type="number"
+                               required
+                               placeholder="Write here" name="age"
                                id="age"></lumine-text-input>
         </div>
     </lumine-card>
-    <lumine-card title="The selects" subtitle="Card subtitle">
+    <lumine-card title-text="Input forms" subtitle-text="Text inputs color variations">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-text-input label="Primary" placeholder="Write here" name="input" id="input"
+                               color="primary"></lumine-text-input>
+            <lumine-text-input label="Secondary" placeholder="Write here" name="input" id="input"
+                               color="secondary"></lumine-text-input>
+            <lumine-text-input label="Accent" placeholder="Write here" name="input" id="input"
+                               color="accent"></lumine-text-input>
+            <lumine-text-input label="Neutral" placeholder="Write here" name="input" id="input"
+                               color="neutral"></lumine-text-input>
+            <lumine-text-input label="Danger" placeholder="Write here" name="input" id="input"
+                               color="danger"></lumine-text-input>
+            <lumine-text-input label="Success" placeholder="Write here" name="input" id="input"
+                               color="success"></lumine-text-input>
+            <lumine-text-input label="Warning" placeholder="Write here" name="input" id="input"
+                               color="warning"></lumine-text-input>
+            <lumine-text-input label="Info" placeholder="Write here" name="input" id="input"
+                               color="info"></lumine-text-input>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Select forms" subtitle-text="Selects">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-select label="Select" name="opcion" id="opcion">
+            </lumine-select>
+            <lumine-select label="Disabled select" name="opcion" id="opcion" disabled>
+            </lumine-select>
+            <lumine-select label="Default selected" name="opcion" id="opcion" value="2">
+            </lumine-select>
+            <lumine-select label="Required select" required name="opcion" id="opcion">
+            </lumine-select>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Select forms" subtitle-text="Selects color variations">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-select label="Primary" name="opcion" id="opcion" color="primary">
+            </lumine-select>
+            <lumine-select label="Secondary" name="opcion" id="opcion" color="secondary">
+            </lumine-select>
+            <lumine-select label="Accent" name="opcion" id="opcion" color="accent">
+            </lumine-select>
+            <lumine-select label="Neutral" name="opcion" id="opcion" color="neutral">
+            </lumine-select>
+            <lumine-select label="Danger" name="opcion" id="opcion" color="danger">
+            </lumine-select>
+            <lumine-select label="Success" name="opcion" id="opcion" color="success">
+            </lumine-select>
+            <lumine-select label="Warning" name="opcion" id="opcion" color="warning">
+            </lumine-select>
+            <lumine-select label="Info" name="opcion" id="opcion" color="info">
+            </lumine-select>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Textarea" subtitle-text="Example of textareas">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-textarea label="Address"
+                             placeholder="Write here"
+                             name="address"
+                             id="address"></lumine-textarea>
+            <lumine-textarea label="Description"
+                             placeholder="Disabled"
+                             name="description"
+                             disabled
+                             id="description"></lumine-textarea>
+            <lumine-textarea label="Description"
+                             placeholder="Por defecto"
+                             name="description"
+                             value="Hello world!"
+                             id="description"></lumine-textarea>
+            <lumine-textarea label="Description"
+                             placeholder="Write here"
+                             required
+                             name="description"
+                             id="description"></lumine-textarea>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Textarea forms" subtitle-text="Textareas color variations">
+        <div class="grid grid-cols-4 gap-4">
+            <lumine-textarea label="Primary" placeholder="Write here" name="description"
+                             id="description"
+                             color="primary"></lumine-textarea>
+            <lumine-textarea label="Secondary" placeholder="Write here" name="description"
+                             id="description"
+                             color="secondary"></lumine-textarea>
+            <lumine-textarea label="Accent" placeholder="Write here" name="description"
+                             id="description"
+                             color="accent"></lumine-textarea>
+            <lumine-textarea label="Neutral" placeholder="Write here" name="description"
+                             id="description"
+                             color="neutral"></lumine-textarea>
+            <lumine-textarea label="Danger" placeholder="Write here" name="description"
+                             id="description"
+                             color="danger"></lumine-textarea>
+            <lumine-textarea label="Success" placeholder="Write here" name="description"
+                             id="description"
+                             color="success"></lumine-textarea>
+            <lumine-textarea label="Warning" placeholder="Write here" name="description"
+                             id="description"
+                             color="warning"></lumine-textarea>
+            <lumine-textarea label="Info" placeholder="Write here" name="description"
+                             id="description"
+                             color="info"></lumine-textarea>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="The Checkbox" subtitle-text="Example of checkboxes">
         <div class="grid grid-cols-3 gap-4">
-            <lumine-select label="Seleccione una opción" name="opcion" id="opcion">
-            </lumine-select>
-            <lumine-select label="Card deshabilitado" name="opcion" id="opcion" disabled>
-            </lumine-select>
-            <lumine-select label="Opción por defecto seleccionada" name="opcion" id="opcion" value="2">
-            </lumine-select>
+            <lumine-checkbox label="Checkbox"
+                             name="checkbox"
+                             id="checkbox"></lumine-checkbox>
+            <lumine-checkbox label="Checkbox disabled"
+                             name="checkbox"
+                             id="checkbox"
+                             disabled></lumine-checkbox>
+            <lumine-checkbox label="Checkbox checked"
+                             name="checkbox"
+                             id="checkbox"
+                             checked></lumine-checkbox>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Checkbox forms" subtitle-text="Checkboxes color variations">
+        <div class="grid grid-cols-3 gap-4">
+            <lumine-checkbox checked label="Primary" name="checkbox" id="checkbox" color="primary"></lumine-checkbox>
+            <lumine-checkbox checked label="Secondary" name="checkbox" id="checkbox"
+                             color="secondary"></lumine-checkbox>
+            <lumine-checkbox checked label="Accent" name="checkbox" id="checkbox" color="accent"></lumine-checkbox>
+            <lumine-checkbox checked label="Neutral" name="checkbox" id="checkbox" color="neutral"></lumine-checkbox>
+            <lumine-checkbox checked label="Danger" name="checkbox" id="checkbox" color="danger"></lumine-checkbox>
+            <lumine-checkbox checked label="Success" name="checkbox" id="checkbox" color="success"></lumine-checkbox>
+            <lumine-checkbox checked label="Warning" name="checkbox" id="checkbox" color="warning"></lumine-checkbox>
+            <lumine-checkbox checked label="Info" name="checkbox" id="checkbox" color="info"></lumine-checkbox>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="The Radio Button" subtitle-text="Example of radio buttons">
+        <div class="grid grid-cols-3 gap-4">
+            <lumine-radio-button label="Radio button"
+                                 value="1"
+                                 name="radio1"
+                                 id="radio1"></lumine-radio-button>
+            <lumine-radio-button label="Radio button disabled"
+                                 name="radio2"
+                                 value="2"
+                                 id="radio2"
+                                 disabled></lumine-radio-button>
+            <lumine-radio-button label="Radio button checked"
+                                 name="radio3"
+                                 id="radio3"
+                                 value="3"
+                                 checked></lumine-radio-button>
+        </div>
+    </lumine-card>
+    <lumine-card title-text="Radio buttons forms" subtitle-text="Radio buttons color variations">
+        <div class="grid grid-cols-3 gap-4">
+            <lumine-radio-button value="1" label="Primary" name="radioAlt" id="radioP" color="primary"></lumine-radio-button>
+            <lumine-radio-button value="2" label="Secondary" name="radioAlt" id="radioS" color="secondary"></lumine-radio-button>
+            <lumine-radio-button value="3" label="Accent" name="radioAlt" id="radioA" color="accent"></lumine-radio-button>
+            <lumine-radio-button value="4" label="Neutral" name="radioAlt" id="radioN" color="neutral"></lumine-radio-button>
+            <lumine-radio-button value="5" label="Danger" name="radioAlt" id="radioD" color="danger"></lumine-radio-button>
+            <lumine-radio-button value="6" label="Success" name="radioAlt" id="radioSu" color="success"></lumine-radio-button>
+            <lumine-radio-button value="7" label="Warning" name="radioAlt" id="radioW" color="warning"></lumine-radio-button>
+            <lumine-radio-button value="8" label="Info" name="radioAlt" id="radioI" color="info"></lumine-radio-button>
         </div>
     </lumine-card>
 </div>
@@ -45,5 +293,8 @@
 <script type="module" src="src/components/atoms/text-input/text-input.ts"></script>
 <script type="module" src="src/components/atoms/select/select.ts"></script>
 <script type="module" src="src/components/atoms/card/card.ts"></script>
+<script type="module" src="src/components/atoms/textarea/textarea.ts"></script>
+<script type="module" src="src/components/atoms/checkbox/checkbox.ts"></script>
+<script type="module" src="src/components/atoms/radio-button/radio-button.ts"></script>
 </body>
 </html>

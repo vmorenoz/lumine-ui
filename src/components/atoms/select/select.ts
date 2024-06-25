@@ -3,6 +3,7 @@ import {customElement, property} from "lit/decorators.js";
 
 import style from "./select.scss?inline";
 import {TailwindElement} from "../../../shared/tailwind.element";
+import {ColorVariant} from "../../../enums/color-variant.enum";
 
 export interface ISelectOption {
     value: string;
@@ -28,19 +29,25 @@ export class Select extends TailwindElement(style) {
     @property({type: Boolean})
     disabled: boolean = false;
 
+    @property({type: Boolean})
+    required: boolean = false;
+
+    @property()
+    color: ColorVariant = ColorVariant.default;
+
     @property({type: Array})
     options: Array<ISelectOption> = [
         {
             value: "1",
-            text: "Opción 1",
+            text: "Option 1",
         },
         {
             value: "2",
-            text: "Opción 2",
+            text: "Option 2",
         },
         {
             value: "3",
-            text: "Opción 3",
+            text: "Option 3",
         }
     ];
 
@@ -50,7 +57,8 @@ export class Select extends TailwindElement(style) {
     }
 
     renderLabel() {
-        return this.label ? html`<label>${this.label}</label>` : null;
+        return this.label ? html`<label class="label-${this.color}">${this.label}
+            ${this.required ? html`<span class="text-red-500">*</span>` : null}</label>` : null;
     }
 
     render() {
@@ -59,6 +67,7 @@ export class Select extends TailwindElement(style) {
             <select id="${this.id}"
                     ?disabled="${this.disabled}"
                     name="${this.name}"
+                    class="select-${this.color}"
                     @input="${this.handleInput}"
                     @focus="${this.handleFocus}"
                     @blur="${this.handleBlur}">

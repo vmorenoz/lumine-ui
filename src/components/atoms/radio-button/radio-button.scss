@@ -1,49 +1,53 @@
 :host {
-  label {
-    @apply block text-sm font-medium text-dark;
+  $labelColors: (
+          default: text-gray-500,
+          primary: text-primary-500,
+          secondary: text-secondary-500,
+          accent: text-accent-500,
+          neutral: text-neutral-500,
+          danger: text-danger-500,
+          success: text-success-500,
+          warning: text-warning-500,
+          info: text-info-500,
+          disabled: text-gray-400 cursor-not-allowed
+  );
 
-    &.label-default {
-      @apply text-dark;
+  $radioColors: (
+          default: gray-500,
+          primary: primary-500,
+          secondary: secondary-500,
+          accent: accent-500,
+          neutral: neutral-500,
+          danger: danger-500,
+          success: success-500,
+          warning: warning-500,
+          info: info-500
+  );
+
+  // Mixin para aplicar estilos comunes a los labels
+  @mixin labelStyle($color) {
+    @apply block text-base #{$color};
+  }
+
+  // Mixin para aplicar estilos comunes a los radios
+  @mixin radioStyle($borderColor) {
+    &::before {
+      @apply border-#{$borderColor};
     }
 
-    &.label-primary {
-      @apply text-primary-500;
-    }
+    &:checked {
+      &::before {
+        @apply border-2;
+      }
 
-    &.label-secondary {
-      @apply text-secondary-500;
-    }
-
-    &.label-accent {
-      @apply text-accent-500;
-    }
-
-    &.label-neutral {
-      @apply text-neutral-500;
-    }
-
-    &.label-danger {
-      @apply text-danger-500;
-    }
-
-    &.label-success {
-      @apply text-success-500;
-    }
-
-    &.label-warning {
-      @apply text-warning-500;
-    }
-
-    &.label-info {
-      @apply text-info-500;
-    }
-
-    &.label-disabled {
-      @apply text-gray-400 cursor-not-allowed;
+      &::after {
+        @apply bg-#{$borderColor};
+      }
     }
   }
 
-  input[type="radio"] {
+  // Placeholder para estilos base de los radios
+  %radioBase {
     @apply w-4 h-4 bg-white rounded relative appearance-none;
 
     &::before {
@@ -55,164 +59,24 @@
       content: '';
       @apply absolute inset-0 left-1 top-1 w-2 h-2 bg-white rounded-full transition-transform;
     }
+  }
 
-    &.radio-default {
-      &::before {
-        @apply border-gray-500;
-      }
+  label {
+    @include labelStyle(text-dark); // Estilo por defecto
 
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-gray-500;
-        }
+    @each $color, $value in $labelColors {
+      &.label-#{$color} {
+        @include labelStyle($value);
       }
     }
+  }
 
-    &.radio-primary {
-      &::before {
-        @apply border-primary-500;
-      }
+  input[type="radio"] {
+    @extend %radioBase; // Estilos base de los radios
 
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-primary-500;
-        }
-      }
-    }
-
-    &.radio-secondary {
-      &::before {
-        @apply border-secondary-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-secondary-500;
-        }
-      }
-    }
-
-    &.radio-secondary {
-      &::before {
-        @apply border-secondary-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-secondary-500;
-        }
-      }
-    }
-
-    &.radio-accent {
-      &::before {
-        @apply border-accent-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-accent-500;
-        }
-      }
-    }
-
-    &.radio-neutral {
-      &::before {
-        @apply border-neutral-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-neutral-500;
-        }
-      }
-    }
-
-    &.radio-danger {
-      &::before {
-        @apply border-danger-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-danger-500;
-        }
-      }
-    }
-
-    &.radio-success {
-      &::before {
-        @apply border-success-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-success-500;
-        }
-      }
-    }
-
-    &.radio-warning {
-      &::before {
-        @apply border-warning-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-warning-500;
-        }
-      }
-    }
-
-    &.radio-info {
-      &::before {
-        @apply border-info-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply border-2;
-        }
-
-        &::after {
-          @apply bg-info-500;
-        }
+    @each $color, $value in $radioColors {
+      &.radio-#{$color} {
+        @include radioStyle($value);
       }
     }
 

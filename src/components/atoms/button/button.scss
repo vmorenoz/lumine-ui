@@ -1,237 +1,84 @@
 :host {
+  // Estilos base para todos los botones
   button {
-    @apply px-4 max-h-10 h-10 py-2 rounded shadow-md font-normal text-base transition-all duration-200;
+    @apply px-4 max-h-10 h-10 py-2 rounded font-normal text-base transition-all duration-200;
 
+    &:active {
+      @apply scale-95;
+    }
+  }
+
+  // Mixins para estados de botones (hover y active) y tipos (flat, raised, outline, clear)
+  @mixin button-hover($color) {
+    &:hover {
+      @apply bg-#{$color};
+    }
+  }
+  @mixin button-active($color) {
+    &:active {
+      @apply bg-#{$color} scale-95;
+    }
+  }
+  @mixin button-style($bg, $text, $border: null, $hover-bg: null, $active-bg: null) {
+    @apply bg-#{$bg} text-#{$text} #{$border};
+    @if $hover-bg {
+      @include button-hover($hover-bg);
+    }
+    @if $active-bg {
+      @include button-active($active-bg);
+    }
+  }
+  @mixin button-clear($text, $hover-bg: null) {
+    @apply bg-transparent border-none shadow-none text-#{$text};
+    &:hover {
+      @apply bg-#{$hover-bg};
+    }
+    &:active {
+      @apply bg-white scale-95;
+    }
+  }
+  @mixin button-outline($border, $text, $active-bg: null) {
+    @apply border-#{$border} bg-transparent text-#{$border};
+    &:active {
+      @apply bg-#{$active-bg} scale-95;
+    }
+  }
+
+  // Aplicación de estilos por tipo de botón y variantes
+  button {
     &.btn-flat {
       @apply shadow-none;
 
       &.btn-default {
-        @apply bg-gray-100 text-dark;
-
-        &:hover {
-          @apply bg-gray-200;
-        }
-
-        &:active {
-          @apply bg-gray-300 scale-95;
-        }
+        @include button-style(gray-100, dark, null, gray-200);
       }
 
-      &.btn-primary {
-        @apply bg-primary-500 text-primary-50;
-
-        &:hover {
-          @apply bg-primary-600;
-        }
-
-        &:active {
-          @apply bg-primary-700 scale-95;
-        }
-      }
-
-      &.btn-secondary {
-        @apply bg-secondary-500 text-secondary-50;
-
-        &:hover {
-          @apply bg-secondary-600;
-        }
-
-        &:active {
-          @apply bg-secondary-700 scale-95;
-        }
-      }
-
-      &.btn-accent {
-        @apply bg-accent-500 text-accent-50;
-
-        &:hover {
-          @apply bg-accent-600;
-        }
-
-        &:active {
-          @apply bg-accent-700 scale-95;
-        }
-      }
-
-      &.btn-neutral {
-        @apply bg-neutral-500 text-neutral-50;
-
-        &:hover {
-          @apply bg-neutral-600;
-        }
-
-        &:active {
-          @apply bg-neutral-700 scale-95;
-        }
-      }
-
-      &.btn-danger {
-        @apply bg-danger-500 text-danger-50;
-
-        &:hover {
-          @apply bg-danger-600;
-        }
-
-        &:active {
-          @apply bg-danger-700 scale-95;
-        }
-      }
-
-      &.btn-success {
-        @apply bg-success-500 text-success-50;
-
-        &:hover {
-          @apply bg-success-600;
-        }
-
-        &:active {
-          @apply bg-success-700 scale-95;
-        }
-      }
-
-      &.btn-warning {
-        @apply bg-warning-500 text-warning-50;
-
-        &:hover {
-          @apply bg-warning-600;
-        }
-
-        &:active {
-          @apply bg-warning-700 scale-95;
-        }
-      }
-
-      &.btn-info {
-        @apply bg-info-500 text-info-50;
-
-        &:hover {
-          @apply bg-info-600;
-        }
-
-        &:active {
-          @apply bg-info-700 scale-95;
+      @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+        &.btn-#{$color} {
+          @include button-style(#{$color}-500, #{$color}-50, null, #{$color}-600, #{$color}-700);
         }
       }
 
       &:disabled {
-        @apply bg-gray-50 text-gray-400 cursor-not-allowed;
+        @apply bg-gray-50 text-gray-300 cursor-not-allowed;
       }
-
     }
 
     &.btn-raised {
       @apply shadow-md;
 
       &.btn-default {
-        @apply bg-gray-100 text-gray-800;
-
-        &:hover {
-          @apply bg-gray-200;
-        }
-
-        &:active {
-          @apply bg-gray-300 scale-95;
-        }
+        @include button-style(gray-100, gray-800, null, gray-200);
       }
 
-      &.btn-primary {
-        @apply bg-primary-100 text-primary-800;
-
-        &:hover {
-          @apply bg-primary-200;
-        }
-
-        &:active {
-          @apply bg-primary-300 scale-95;
-        }
-      }
-
-      &.btn-secondary {
-        @apply bg-secondary-100 text-secondary-800;
-
-        &:hover {
-          @apply bg-secondary-200;
-        }
-
-        &:active {
-          @apply bg-secondary-300 scale-95;
-        }
-      }
-
-      &.btn-accent {
-        @apply bg-accent-100 text-accent-800;
-
-        &:hover {
-          @apply bg-accent-200;
-        }
-
-        &:active {
-          @apply bg-accent-300 scale-95;
-        }
-      }
-
-      &.btn-neutral {
-        @apply bg-neutral-100 text-neutral-800;
-
-        &:hover {
-          @apply bg-neutral-200;
-        }
-
-        &:active {
-          @apply bg-neutral-300 scale-95;
-        }
-      }
-
-      &.btn-danger {
-        @apply bg-danger-100 text-danger-800;
-
-        &:hover {
-          @apply bg-danger-200;
-        }
-
-        &:active {
-          @apply bg-danger-300 scale-95;
-        }
-      }
-
-      &.btn-success {
-        @apply bg-success-100 text-success-800;
-
-        &:hover {
-          @apply bg-success-200;
-        }
-
-        &:active {
-          @apply bg-success-300 scale-95;
-        }
-      }
-
-      &.btn-warning {
-        @apply bg-warning-100 text-warning-800;
-
-        &:hover {
-          @apply bg-warning-200;
-        }
-
-        &:active {
-          @apply bg-warning-300 scale-95;
-        }
-      }
-
-      &.btn-info {
-        @apply bg-info-100 text-info-800;
-
-        &:hover {
-          @apply bg-info-200;
-        }
-
-        &:active {
-          @apply bg-info-300 scale-95;
+      @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+        &.btn-#{$color} {
+          @include button-style(#{$color}-100, #{$color}-900, null, #{$color}-200);
         }
       }
 
       &:disabled {
-        @apply bg-gray-50 text-gray-400 cursor-not-allowed;
+        @apply bg-gray-50 text-gray-300 cursor-not-allowed;
       }
     }
 
@@ -239,165 +86,34 @@
       @apply border shadow-none;
 
       &.btn-default {
-        @apply border-gray-400 bg-transparent text-gray-700;
-
-        &:active {
-          @apply bg-gray-100 scale-95;
-        }
+        @include button-outline(gray-400, gray-700, gray-100);
       }
 
-      &.btn-primary {
-        @apply border-primary-600 bg-transparent text-primary-600;
-
-        &:active {
-          @apply bg-primary-100 scale-95;
-        }
-      }
-
-      &.btn-secondary {
-        @apply border-secondary-600 bg-transparent text-secondary-600;
-
-        &:active {
-          @apply bg-secondary-100 scale-95;
-        }
-      }
-
-      &.btn-accent {
-        @apply border-accent-600 bg-transparent text-accent-600;
-
-        &:active {
-          @apply bg-accent-100 scale-95;
-        }
-      }
-
-      &.btn-neutral {
-        @apply border-neutral-600 bg-transparent text-neutral-600;
-
-        &:active {
-          @apply bg-neutral-100 scale-95;
-        }
-      }
-
-      &.btn-danger {
-        @apply border-danger-600 bg-transparent text-danger-600;
-
-        &:active {
-          @apply bg-danger-100 scale-95;
-        }
-      }
-
-      &.btn-success {
-        @apply border-success-600 bg-transparent text-success-600;
-
-        &:active {
-          @apply bg-success-100 scale-95;
-        }
-      }
-
-      &.btn-warning {
-        @apply border-warning-600 bg-transparent text-warning-600;
-
-        &:active {
-          @apply bg-warning-100 scale-95;
-        }
-      }
-
-      &.btn-info {
-        @apply border-info-600 bg-transparent text-info-600;
-
-        &:active {
-          @apply bg-info-100 scale-95;
+      @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+        &.btn-#{$color} {
+          @include button-outline(#{$color}-500, #{$color}-600, #{$color}-100);
         }
       }
 
       &:disabled {
-        @apply text-gray-200 border-gray-200 cursor-not-allowed;
+        @apply text-gray-300 cursor-not-allowed;
       }
     }
 
     &.btn-clear {
-      @apply bg-transparent border-none shadow-none;
-
-      &:active {
-        @apply bg-white scale-95;
-      }
-
       &.btn-default {
-        @apply text-gray-600;
-
-        &:hover {
-          @apply bg-gray-50;
-        }
+        @include button-clear(gray-500, gray-50);
       }
 
-      &.btn-primary {
-        @apply text-primary-600;
-
-        &:hover {
-          @apply bg-primary-50;
-        }
-      }
-
-      &.btn-secondary {
-        @apply text-secondary-600;
-
-        &:hover {
-          @apply bg-secondary-50;
-        }
-      }
-
-      &.btn-accent {
-        @apply text-accent-600;
-
-        &:hover {
-          @apply bg-accent-50;
-        }
-      }
-
-      &.btn-neutral {
-        @apply text-neutral-600;
-
-        &:hover {
-          @apply bg-neutral-50;
-        }
-      }
-
-      &.btn-danger {
-        @apply text-danger-600;
-
-        &:hover {
-          @apply bg-danger-50;
-        }
-      }
-
-      &.btn-success {
-        @apply text-success-600;
-
-        &:hover {
-          @apply bg-success-50;
-        }
-      }
-
-      &.btn-warning {
-        @apply text-warning-600;
-
-        &:hover {
-          @apply bg-warning-50;
-        }
-      }
-
-      &.btn-info {
-        @apply text-info-600;
-
-        &:hover {
-          @apply bg-info-50;
+      @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+        &.btn-#{$color} {
+          @include button-clear(#{$color}-500, #{$color}-50);
         }
       }
 
       &:disabled {
-        @apply text-gray-400 cursor-not-allowed;
+        @apply text-gray-300 cursor-not-allowed;
       }
-
     }
   }
 }

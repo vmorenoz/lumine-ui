@@ -1,119 +1,44 @@
 :host {
+  // Estilos base para labels
   label {
     @apply block text-sm font-medium text-dark mb-1;
 
     &.label-default {
-      @apply text-dark;
+      @apply text-gray-400;
     }
 
-    &.label-primary {
-      @apply text-primary-600
-    }
-
-    &.label-secondary {
-      @apply text-secondary-600;
-    }
-
-    &.label-accent {
-      @apply text-accent-600;
-    }
-
-    &.label-neutral {
-      @apply text-neutral-600;
-    }
-
-    &.label-danger {
-      @apply text-danger-600;
-    }
-
-    &.label-success {
-      @apply text-success-600;
-    }
-
-    &.label-warning {
-      @apply text-warning-600;
-    }
-
-    &.label-info {
-      @apply text-info-600;
+    @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+      &.#{"label-" + $color} {
+        @apply text-#{$color}-600;
+      }
     }
   }
 
+  // Estilos base para textarea
   textarea {
-    @apply text-base block w-full px-2 py-1.5 border rounded shadow-md shadow-gray-50 sm:text-sm;
+    @apply text-base block w-full px-2 py-1.5 border rounded shadow-md shadow-gray-50;
+
+    // Mixin para aplicar estilos a textarea por color
+    @mixin textarea-styles($color) {
+      @apply bg-#{$color}-50 text-#{$color}-800 placeholder-#{$color}-500 border-#{$color}-500;
+
+      &:focus-within {
+        @apply outline-none ring-#{$color}-500 border-#{$color}-700;
+      }
+    }
 
     &.textarea-default {
-      @apply bg-white text-dark placeholder-gray-400 border-gray-200;
+      @apply bg-white text-gray-700 placeholder-gray-400 border-gray-200;
+    }
 
-      &:focus-within {
-        @apply outline-none ring-dark border-dark;
+    // Clases de modificadores de color para textarea
+    @each $color in primary, secondary, accent, neutral, danger, success, warning, info {
+      &.#{"textarea-" + $color} {
+        @include textarea-styles($color);
       }
     }
 
-    &.textarea-primary {
-      @apply bg-primary-50 text-primary-800 placeholder-primary-500 border-primary-500;
-
-      &:focus-within {
-        @apply outline-none ring-primary-500 border-primary-700;
-      }
-    }
-
-    &.textarea-secondary {
-      @apply bg-secondary-50 text-secondary-800 placeholder-secondary-500 border-secondary-500;
-
-      &:focus-within {
-        @apply outline-none ring-secondary-700 border-secondary-700;
-      }
-    }
-
-    &.textarea-accent {
-      @apply bg-accent-50 text-accent-800 placeholder-accent-500 border-accent-500;
-
-      &:focus-within {
-        @apply outline-none ring-accent-500 border-accent-700;
-      }
-    }
-
-    &.textarea-neutral {
-      @apply bg-neutral-50 text-neutral-800 placeholder-neutral-500 border-neutral-500;
-
-      &:focus-within {
-        @apply outline-none ring-neutral-500 border-neutral-700;
-      }
-    }
-
-    &.textarea-danger {
-      @apply bg-danger-50 text-danger-800 placeholder-danger-500 border-danger-500;
-
-      &:focus-within {
-        @apply outline-none ring-danger-500 border-danger-700;
-      }
-    }
-
-    &.textarea-success {
-      @apply bg-success-50 text-success-800 placeholder-success-500 border-success-500;
-
-      &:focus-within {
-        @apply outline-none ring-success-500 border-success-700;
-      }
-    }
-
-    &.textarea-warning {
-      @apply bg-warning-50 text-warning-800 placeholder-warning-500 border-warning-500;
-
-      &:focus-within {
-        @apply outline-none ring-warning-500 border-warning-700;
-      }
-    }
-
-    &.textarea-info {
-      @apply bg-info-50 text-info-800 placeholder-info-500 border-info-500;
-
-      &:focus-within {
-        @apply outline-none ring-info-500 border-info-700;
-      }
-    }
-
+    // Estilos para textarea deshabilitados
     &:disabled {
       @apply bg-gray-50 text-gray-400 cursor-not-allowed;
     }

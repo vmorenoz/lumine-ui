@@ -1,206 +1,66 @@
 :host {
+  /* Common Label Styles */
   label {
-    @apply block text-sm font-medium text-dark;
-
-    &.label-default {
-      @apply text-dark;
-    }
-
-    &.label-primary {
-      @apply text-primary-500;
-    }
-
-    &.label-secondary {
-      @apply text-secondary-500;
-    }
-
-    &.label-accent {
-      @apply text-accent-500;
-    }
-
-    &.label-neutral {
-      @apply text-neutral-500;
-    }
-
-    &.label-danger {
-      @apply text-danger-500;
-    }
-
-    &.label-success {
-      @apply text-success-500;
-    }
-
-    &.label-warning {
-      @apply text-warning-500;
-    }
-
-    &.label-info {
-      @apply text-info-500;
-    }
-
-    &.label-disabled {
-      @apply text-gray-400 cursor-not-allowed;
-    }
+    @apply block text-base text-dark;
   }
 
+  /* Checkbox Base Styles */
   input[type="checkbox"] {
     @apply w-4 h-4 bg-white rounded relative appearance-none;
 
     &::before, &::after {
       content: '';
-      @apply absolute inset-0 w-4 h-4 bg-transparent border rounded transition-transform;
+      @apply absolute inset-0 w-4 h-4 bg-transparent rounded transition-transform;
     }
 
-    &.checkbox-default {
+    &::before {
+      @apply border;
+    }
+  }
+
+  /* Label and Checkbox Variants */
+  /* Note: Using a loop here would be even cleaner if your preprocessor supports it */
+  $variants: default gray-500, primary primary-500, secondary secondary-500,
+  accent accent-500, neutral neutral-500, danger danger-500,
+  success success-500, warning warning-500, info info-500;
+
+  @each $variant, $color in $variants {
+    label.label-#{$variant} {
+      @apply text-#{$color};
+    }
+
+    input[type="checkbox"].checkbox-#{$variant} {
       &::after {
-        @apply border-gray-500;
+        @apply border-#{$color} checked:bg-#{$color};
       }
 
-      &:checked {
-        &::before {
-          @apply bg-gray-500 border-gray-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
+      &::before {
+        @apply border-#{$color};
       }
     }
+  }
 
-    &.checkbox-primary {
-      &::after {
-        @apply border-primary-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-primary-500 border-primary-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
+  /* Checkbox: Checked State (Common) */
+  input[type="checkbox"]:checked {
+    /* Mostrar el SVG */
+    &::after {
+      content: ''; /* Restablecer el content para evitar conflictos */
+      background-size: 75%;
+      @apply block w-full h-full bg-no-repeat bg-center;
+      background-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="%23ffffff" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>');
     }
+  }
 
-    &.checkbox-secondary {
-      &::after {
-        @apply border-secondary-500;
-      }
+  /* Disabled State (Common) */
+  input[type="checkbox"]:disabled {
+    @apply bg-gray-50 cursor-not-allowed;
 
-      &:checked {
-        &::before {
-          @apply bg-secondary-500 border-secondary-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
+    &::before {
+      @apply border-gray-200;
     }
+  }
 
-    &.checkbox-accent {
-      &::after {
-        @apply border-accent-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-accent-500 border-accent-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &.checkbox-neutral {
-      &::after {
-        @apply border-neutral-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-neutral-500 border-neutral-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &.checkbox-danger {
-      &::after {
-        @apply border-danger-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-danger-500 border-danger-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &.checkbox-success {
-      &::after {
-        @apply border-success-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-success-500 border-success-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &.checkbox-warning {
-      &::after {
-        @apply border-warning-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-warning-500 border-warning-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &.checkbox-info {
-      &::after {
-        @apply border-info-500;
-      }
-
-      &:checked {
-        &::before {
-          @apply bg-info-500 border-info-500;
-        }
-
-        &::after {
-          @apply bg-transparent -top-[0.15rem] scale-[60%] border-t-0 border-l-4 border-r-4 border-b-4 rounded-none border-white border-l-transparent rotate-45;
-        }
-      }
-    }
-
-    &:disabled {
-      @apply bg-gray-50 cursor-not-allowed;
-
-      &::after {
-        @apply border-gray-200;
-      }
-    }
+  label.label-disabled {
+    @apply text-gray-400 cursor-not-allowed;
   }
 }

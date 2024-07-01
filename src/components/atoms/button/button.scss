@@ -1,7 +1,7 @@
 :host {
   // Estilos base para todos los botones
   button {
-    @apply px-4 max-h-10 h-10 py-2 rounded font-normal text-base transition-all duration-200;
+    @apply px-4 pt-1 pb-1.5 rounded font-normal text-base transition-all duration-200;
 
     &:active {
       @apply scale-95;
@@ -65,7 +65,7 @@
     }
 
     &.btn-raised {
-      @apply shadow-md;
+      @apply shadow;
 
       &.btn-default {
         @include button-style(gray-100, gray-800, null, gray-200);

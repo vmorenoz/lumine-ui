@@ -5,13 +5,6 @@ import style from "./card.scss?inline";
 import {TailwindElement} from "../../../shared/tailwind.element";
 import {ColorVariant} from "../../../enums/color-variant.enum";
 
-export interface ISelectOption {
-    value: string;
-    text: string;
-    selected?: boolean;
-    disabled?: boolean;
-}
-
 @customElement("lumine-card")
 export class Card extends TailwindElement(style) {
     @property({attribute: 'title-text'})

@@ -26,7 +26,7 @@
 
   // Mixin para aplicar estilos comunes a los labels
   @mixin labelStyle($color) {
-    @apply block text-base #{$color};
+    @apply text-base #{$color};
   }
 
   // Mixin para aplicar estilos comunes a los radios
@@ -35,7 +35,7 @@
       @apply border-#{$borderColor};
     }
 
-    &:checked {
+    &.status-checked {
       &::before {
         @apply border-2;
       }

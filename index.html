@@ -257,7 +257,7 @@
             <lumine-checkbox checked label="Info" name="checkbox" id="checkbox" color="info"></lumine-checkbox>
         </div>
     </lumine-card>
-    <lumine-card title-text="The Radio Button" subtitle-text="Example of radio buttons">
+    <lumine-card title-text="The Radio Text" subtitle-text="Example of radio buttons">
         <div class="grid gap-4">
             <lumine-radio-button label="Radio button"
                                  value="1"
@@ -277,14 +277,24 @@
     </lumine-card>
     <lumine-card title-text="Radio buttons forms" subtitle-text="Radio buttons color variations">
         <div class="grid grid-cols-3 gap-4">
-            <lumine-radio-button value="1" label="Primary" name="radioAlt" id="radioP" color="primary"></lumine-radio-button>
-            <lumine-radio-button value="2" label="Secondary" name="radioAlt" id="radioS" color="secondary"></lumine-radio-button>
-            <lumine-radio-button value="3" label="Accent" name="radioAlt" id="radioA" color="accent"></lumine-radio-button>
-            <lumine-radio-button value="4" label="Neutral" name="radioAlt" id="radioN" color="neutral"></lumine-radio-button>
-            <lumine-radio-button value="5" label="Danger" name="radioAlt" id="radioD" color="danger"></lumine-radio-button>
-            <lumine-radio-button value="6" label="Success" name="radioAlt" id="radioSu" color="success"></lumine-radio-button>
-            <lumine-radio-button value="7" label="Warning" name="radioAlt" id="radioW" color="warning"></lumine-radio-button>
-            <lumine-radio-button value="8" label="Info" name="radioAlt" id="radioI" color="info"></lumine-radio-button>
+            <lumine-radio-button-group value="3">
+                <lumine-radio-button value="1" label="Primary" name="radioGroup"
+                                     color="primary"></lumine-radio-button>
+                <lumine-radio-button value="2" label="Secondary" name="radioGroup"
+                                     color="secondary"></lumine-radio-button>
+                <lumine-radio-button value="3" label="Accent" name="radioGroup"
+                                     color="accent"></lumine-radio-button>
+                <lumine-radio-button value="4" label="Neutral" name="radioGroup"
+                                     color="neutral"></lumine-radio-button>
+                <lumine-radio-button value="5" label="Danger" name="radioGroup"
+                                     color="danger"></lumine-radio-button>
+                <lumine-radio-button value="6" label="Success" name="radioGroup"
+                                     color="success"></lumine-radio-button>
+                <lumine-radio-button value="7" label="Warning" name="radioGroup"
+                                     color="warning"></lumine-radio-button>
+                <lumine-radio-button value="8" label="Info" name="radioGroup"
+                                     color="info"></lumine-radio-button>
+            </lumine-radio-button-group>
         </div>
     </lumine-card>
 </div>
@@ -295,6 +305,7 @@
 <script type="module" src="src/components/atoms/card/card.ts"></script>
 <script type="module" src="src/components/atoms/textarea/textarea.ts"></script>
 <script type="module" src="src/components/atoms/checkbox/checkbox.ts"></script>
+<script type="module" src="src/components/atoms/radio-button-group/radio-button-group.ts"></script>
 <script type="module" src="src/components/atoms/radio-button/radio-button.ts"></script>
 </body>
 </html>

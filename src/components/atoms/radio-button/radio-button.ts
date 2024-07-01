@@ -16,11 +16,14 @@ export class RadioButton extends TailwindElement(style) {
     @property()
     name!: string;
 
-    @property({attribute: true})
+    @property()
     value!: string;
 
     @property({type: Boolean})
     disabled: boolean = false;
+
+    @property({type: Boolean, reflect: true})
+    checked: boolean = false;
 
     @property()
     labelPosition: string = "left";
@@ -30,37 +33,24 @@ export class RadioButton extends TailwindElement(style) {
 
     render() {
         return html`
-            <div class="flex">
-                <div class="flex items-center gap-2 ${this.labelPosition === "left" ? "flex-row" : "flex-row-reverse"}">
-                    <input type="radio"
-                           id="${this.id}"
-                           class="radio-${this.color}"
-                           ?disabled="${this.disabled}"
-                           name="${this.name}"
-                           value="${this.value}"
-                           @focus="${this.handleFocus}"
-                           @blur="${this.handleBlur}"
-                           @change="${this.handleChange}">
-                    <label for="${this.id}"
-                           class="label-${this.color} ${this.disabled ? "label-disabled" : ""}">${this.label}</label>
-                </div>
-            </div>
+            <label class="flex items-center gap-2 ${this.labelPosition === "left" ? "flex-row" : "flex-row-reverse"} label-${this.color} ${this.disabled ? "label-disabled" : ""}">
+                <input type="radio"
+                       id="${this.id}"
+                       name="${this.name}"
+                       class="radio-${this.color} status-${this.checked ? 'checked' : 'unchecked'}"
+                       ?disabled="${this.disabled}"
+                       value="${this.value}"
+                       ?checked="${this.checked}"
+                       @click="${this.handleChecked}">
+                <span>${this.label}</span>
+            </label>
         `;
     }
 
-    handleChange(event: Event) {
-        event.preventDefault();
-        if (this.disabled) return;
-        this.dispatchEvent(new CustomEvent("change", {detail: this.value}));
-    }
+    handleChecked(event: Event) {
+        if (this.checked === (event.target as HTMLInputElement).checked) return;
 
-    handleFocus() {
-        if (this.disabled) return;
-        this.dispatchEvent(new CustomEvent("focus"));
-    }
-
-    handleBlur() {
-        if (this.disabled) return;
-        this.dispatchEvent(new CustomEvent("blur"));
+        this.checked = (event.target as HTMLInputElement).checked;
+        this.dispatchEvent(new CustomEvent('checked', {detail: {value: this.value}, bubbles: true}));
     }
 }

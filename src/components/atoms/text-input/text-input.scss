@@ -17,19 +17,23 @@
 
   // Estilos base para inputs
   input {
-    @apply text-base block w-full px-2 py-1.5 border rounded shadow-md shadow-gray-50;
+    @apply text-base block w-full px-2 py-1 border rounded shadow-sm shadow-gray-50;
 
     // Mixin para aplicar estilos a inputs por color
     @mixin input-styles($color) {
-      @apply bg-#{$color}-50 text-#{$color}-800 placeholder-#{$color}-500 border-#{$color}-500;
+      @apply bg-#{$color}-50 text-#{$color}-800 placeholder-#{$color}-300 border-#{$color}-400;
 
       &:focus-within {
-        @apply outline-none ring-#{$color}-500 border-#{$color}-700;
+        @apply outline-none ring-1 ring-#{$color}-300 border-#{$color}-500;
       }
     }
 
     &.input-default {
-      @apply bg-white text-gray-700 placeholder-gray-400 border-gray-200;
+      @apply bg-white text-gray-700 placeholder-gray-300 border-gray-200;
+
+      &:focus-within {
+        @apply outline-none ring-1 ring-gray-200 border-gray-400;
+      }
     }
 
     // Clases de modificadores de color para inputs
